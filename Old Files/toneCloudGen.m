@@ -1,4 +1,3 @@
-% Make a tone cloud
 function stim = toneCloudGen(stimInfo) % fs,tonePipDur,totalDur,cloudRange,nLogSteps,envDur,tonePipRate,toneLevel,FILT
 
 % set variables
@@ -48,8 +47,3 @@ stim = conv(stim,stimInfo.FILT,'same');
 % stim = (stim/10);
 % wavwrite_append(stim, fn, chunk_size, fs, nbits)
 % save([filename '_stimInfo.mat'],'stimInfo')
-
-
-
-    
-    

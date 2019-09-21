@@ -64,11 +64,10 @@ noiseBurst = envelope_CA(noiseBurst,.005,fs);
 noiseBurstL = conv(noiseBurst,params.filt,'same');
 
 % make a click for rewards
-[b,a] = butter(5,[5000/fs 50000/fs]);
+%[b,a] = butter(5,[5000/fs 50000/fs]);
 click = rand(1,0.025*fs)/30;
 click = envelope_CA(click, 0.005,fs);
 click = conv(click,params.filt,'same');
-
 
 % initialize some counts
 trialNumber = 0;
@@ -91,7 +90,7 @@ while ~flag
             if exist('stimInfo','var')
                 stimInfo.trialType = tt;
             end
-            [stim events] = eval(params.stimFunc);
+            [stim, events] = eval(params.stimFunc);
             cd(params.basePath);
             rewardType =  params.rewardContingency(tt);
             giveTO = params.timeOutContingency(tt); % give time out?
@@ -151,9 +150,7 @@ while ~flag
             (str2double(responseTime)-str2double(soundOffset))/1e6);
         
 %         pause(.25)
-                
-      
-        
+                        
         % determine next trialType
         if str2double(responseOutcome)==1 || giveTO==0 % if correct or trialType requires no timeout
             newTrial = 1;
@@ -226,20 +223,12 @@ end
 
 fprintf('\n\nPercent correct: %02.2f\n',mean(resp(resp~=99)));
 delete(instrfindall)
-fclose(fid)
+fclose(fid);
 %behSessionInfo(fn);
 if strcmp(params.device,'NIDAQ')
     stop(s);
 end
 clear all
-
-
-
-
-
-
-
-
 
 function y = envelope_CA(s,t,fs)
 

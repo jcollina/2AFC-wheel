@@ -1,5 +1,5 @@
 % task
-params.taskType = 'SPINhab';
+params.taskType = 'wheelHab';
 
 % booth parameters
 params.boothID = 'booth6';
@@ -21,7 +21,7 @@ load([params.filtdir filesep params.filtFile]);
 params.filt = FILT;
 
 % task parameters
-params.holdDuration       = 350;
+params.holdDuration       = 500;
 params.timeoutDuration    = 5000;
 
 

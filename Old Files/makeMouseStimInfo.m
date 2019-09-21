@@ -1,7 +1,7 @@
 %% save mouse info for FM stimuli TRAINING
 
 clear
-stimInfo.mouse  = 'test';
+stimInfo.mouse  = 'test'; % stimulus function
 stimInfo.stimFunction = 'FM_stimGen_v2.m'; % stimulus function
 stimInfo.modRates = [10,50]; % FM modulation rates
 stimInfo.carrierFreq = 12000; % Hz
@@ -74,6 +74,7 @@ stimInfo.tonePipDur      = 0.030;            % duration of each tone pip in clou
 stimInfo.totalDur        = 1;                % total duration of each tone cloud
 stimInfo.cloudRange      = [15000 30000;...
                             20000 40000];               % range of tones within the cloud
+                        
 stimInfo.trialPC = [50,50]; % proportion presentation of each trial type
 stimInfo.timeouts = [1,1]; % which trials will have timeouts
 stimInfo.rewardContingency = [1,2]; % which side will be rewarded for each rate
@@ -81,6 +82,5 @@ stimInfo.nLogSteps       = 10;               % number of tones in the range
 stimInfo.envDur          = 0.005;            % duration of tone pip envelope
 stimInfo.tonePipRate     = 100;              % presentation rate in Hz (determines tone overlap)
 stimInfo.toneLevel       = 70;               % levels of tones in dB
-
 
 save(['E:\Data\projects\wheel_toneClouds\training_fineHigh.mat']);

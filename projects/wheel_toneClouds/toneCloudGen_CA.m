@@ -12,10 +12,8 @@ function [stim, events, seed] = toneCloudGen_CA(stimInfo) % fs,tonePipDur,totalD
 
 stimInfo.range      = stimInfo.cloudRange(stimInfo.trialType,:);
 
-
 % determine further variables
 stimInfo.index = round(logspace(log10(stimInfo.range(1)),log10(stimInfo.range(2)),stimInfo.nLogSteps)); % frequency range
-% stimInfo.index = round(exp(linspace(log(stimInfo.range(1)),log(stimInfo.range(2)),stimInfo.nLogSteps))); % frequency range
 stimInfo.nTones = stimInfo.totalDur*stimInfo.tonePipRate; % number of tones in stimulus
 atten = 70-stimInfo.toneLevel; % convert tone level to attenuation from 70 dB (filter is set to make sounds at 70 dB)
 

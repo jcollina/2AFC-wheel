@@ -74,7 +74,6 @@ set(handles.listbox1,'String',projects);
 % UIWAIT makes runMouseRun_GUI wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
-
 % --- Outputs from this function are returned to the command line.
 function varargout = runMouseRun_GUI_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
@@ -158,12 +157,8 @@ contents = cellstr(get(handles.listbox2,'String'));
 mouse = contents{get(handles.listbox2,'Value')};
 
 switch project
-    case 'wheel_toneClouds'
-        %wheel_behaviour_TESTINGgui(mouse,project,parameterFile);
-        wheel_2AFC(mouse,baseDir,project,parameterFile);
-    case 'speech_in_noise'
-        wheel_2AFC(mouse,baseDir,project,parameterFile);
     case 'habituation'
         wheel_2AFC_habituation(mouse,baseDir,project,parameterFile);
-        
+    otherwise
+        wheel_2AFC(mouse,baseDir,project,parameterFile);          
 end

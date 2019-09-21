@@ -1,5 +1,5 @@
 % task
-params.taskType = 'toneCloudHab';
+params.taskType = 'wheelHab';
 
 % booth parameters
 params.boothID = 'booth3';
